@@ -1,26 +1,37 @@
 package by.epam.library.entity;
 
-public class Book extends PrintedEdition{
-	private String title;
-	
-	public Book(String title, double price) {
-		super(price);
-		this.title = title;
+public class Book extends PrintedEdition {
+	public String author;
+	private int publishedYear;
+
+	public Book(String title, double price, String author, int publishedYear) {
+		super(title, price);
+		this.author = author;
+		this.publishedYear = publishedYear;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getAuthor() {
+		return author;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public int getPublishedYear() {
+		return publishedYear;
+	}
+
+	public void setPublishedYear(int publishedYear) {
+		this.publishedYear = publishedYear;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		result = prime * result + ((author == null) ? 0 : author.hashCode());
+		result = prime * result + publishedYear;
 		return result;
 	}
 
@@ -33,14 +44,18 @@ public class Book extends PrintedEdition{
 		if (getClass() != obj.getClass())
 			return false;
 		Book other = (Book) obj;
-		if (title == null) {
-			if (other.title != null)
+		if (author == null) {
+			if (other.author != null)
 				return false;
-		} else if (!title.equals(other.title))
+		} else if (!author.equals(other.author))
+			return false;
+		if (publishedYear != other.publishedYear)
 			return false;
 		return true;
 	}
-	
-	
 
+	@Override
+	public String toString() {
+		return getTitle() + ", " + getPrice() + ", " + author + ", " + publishedYear;
+	}
 }

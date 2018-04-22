@@ -1,10 +1,10 @@
 package by.epam.library.entity;
 
-public class Magazine extends PrintedEdition{
+public class Magazine extends PrintedEdition {
 	private int pageCount;
-	
-	public Magazine(int pageCount, double price) {
-		super(price);
+
+	public Magazine(String title, double price, int pageCount) {
+		super(title, price);
 		this.pageCount = pageCount;
 	}
 
@@ -37,7 +37,9 @@ public class Magazine extends PrintedEdition{
 			return false;
 		return true;
 	}
-	
-	
 
+	@Override
+	public String toString() {
+		return getTitle() + getPrice() + pageCount;
+	}
 }

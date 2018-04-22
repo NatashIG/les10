@@ -2,7 +2,6 @@ package by.epam.library.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import by.epam.library.service.find.Findable;
 
 public class Library {
@@ -48,4 +47,8 @@ public class Library {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Library: " + units;
+	}
 }

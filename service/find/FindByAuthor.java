@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import by.epam.library.entity.PrintedEdition;
 
-public class FindByPrice implements Findable {
-	private double price;
+public class FindByAuthor implements Findable {
+	private String author;
 
-	public FindByPrice(double price) {
-		this.price = price;
+	public FindByAuthor(String author) {
+		this.author = author;
 	}
 
 	@Override
@@ -17,7 +17,7 @@ public class FindByPrice implements Findable {
 
 		for (int i = 0; i < units.size(); i++) {
 			PrintedEdition obj = units.get(i);
-			if (price == obj.getPrice()) {
+			if (author == obj.getAuthor()) {
 				resultUnits.add(obj);
 			}
 		}
